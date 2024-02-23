@@ -3,13 +3,20 @@
 #include <chrono>
 #include "terminal.h"
 #include "utils.h"
+#include "draw.h"
 
 using namespace std::chrono_literals;
 
 
 
 void init() {
+    tc::clearScreen();
     tc::hideCursor();
+    dw::window(1, 1, 9, 6, "Hold");
+    dw::window(1, 10, 12, 22, "Tetris");
+    dw::window(7, 1, 9, 16, "Status");
+    dw::window(19, 22, 8, 4, "Info");
+    dw::window(1, 22, 8, 18, "Next");
 }
 
 void loop() {
@@ -17,12 +24,11 @@ void loop() {
 
     while (1) {
         
-        tc::clearScreen();
-        tc::moveTo(1,1);
+        tc::moveTo(10,4);
         std::cout << "FPS: " << ut::fps();
 
 
-        tc::moveTo(i++%20, 10); // i 在1-20行循环
+        tc::moveTo(5, 5); // i 在1-20行循环
         tc::setBackgroundColor(15);
         std::cout << "  ";
         tc::resetColor();
