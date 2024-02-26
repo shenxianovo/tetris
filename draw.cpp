@@ -1,4 +1,4 @@
-#include <iostream>
+#include "define.h"
 #include "draw.h"
 #include "terminal.h"
 #include "utils.h"
@@ -23,14 +23,12 @@ namespace dw {
 
     const std::u32string currentStyle = style4;
 
-    inline int block2Col(int block) {
-        return 2*block-1;
-    }
+
 
     // 1 10 12 22
     void window(int top, int left, int width, int height, std::string title) {
         for (int r = 0; r < height; ++r) {
-            tc::moveTo(top + r,block2Col(left));
+            tc::moveTo(top + r, ut::b2c(left));
             for (int c = 0; c < width; ++c) {
                 // 第一行
                 if (r == 0) {
@@ -52,7 +50,7 @@ namespace dw {
                 }
             }
         }
-        tc::moveTo(top, block2Col(left) + (width*2-title.length()) / 2);
+        tc::moveTo(top, ut::b2c(left) + (width*2-title.length()) / 2);
         std::cout << title;
     }
 }
