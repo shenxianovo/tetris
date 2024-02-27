@@ -38,10 +38,9 @@ namespace gm {
 
     // 多线程-键盘监听
     void keyEvent() {
-        
         while (running) {
             command = getch(); // windows下有一个函数getch 相较于getchar getch不缓存(不用回车) Linix需要自己实现
-
+            if (commandFunc.find(command) != commandFunc.end()) // 找不到返回尾迭代器
             commandFunc[command]();
         }
     }

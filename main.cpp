@@ -28,13 +28,13 @@ void loop() {
         tc::moveTo(10,4);
         std::cout << "FPS: " << ut::fps();
 
-
-        tc::moveTo(gm::row, ut::b2c(gm::col)); // i 在1-20行循环
-        tc::setBackgroundColor(15);
-        std::cout << "  ";
+        tc::moveTo(gm::row, ut::b2c(gm::col));
+        
+        dw::tetromino(gm::cur, gm::row, gm::col);
         tc::resetColor();
+
         std::cout << std::flush;
-        std::this_thread::sleep_for(100ms); // c++14后新增时间度量单位 在头文件 chrono 中
+        std::this_thread::sleep_for(18ms); // c++14后新增时间度量单位 在头文件 chrono 中
     }
 }
 

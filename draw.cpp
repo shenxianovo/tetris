@@ -53,4 +53,21 @@ namespace dw {
         tc::moveTo(top, ut::b2c(left) + (width*2-title.length()) / 2);
         std::cout << title;
     }
+
+    void tetromino(gm::Tetromino &t, int top, int left) {
+        tc::moveTo(top, ut::b2c(left));
+        for (int i = 0; i < t.size(); ++i) {
+            tc::moveTo(top + i, ut::b2c(left));
+            for (int j = 0; j < t[0].size(); ++j) {
+                if (t[i][j] > 0) {
+                    tc::setBackgroundColor((int)gm::tetroColor[t[i][j]]);
+                    std::cout << "  ";
+                }
+                else {
+                    tc::resetColor();
+                    std::cout << "  ";
+                }
+            }
+        }
+    }
 }

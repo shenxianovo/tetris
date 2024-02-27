@@ -1,4 +1,5 @@
 #pragma once
+#include "tetromino.h"
 
 namespace gm {
     extern bool running;
@@ -13,6 +14,6 @@ namespace gm {
     void down();
 
     extern int row, col;
-
+    extern Tetromino cur;
     
 }
